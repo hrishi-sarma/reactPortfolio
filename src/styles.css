@@ -14,8 +14,8 @@ body,
 }
 
 body {
-  background: #f0f0f0;
-  color: black;
+  background: #ffffff;
+  color: rgb(0, 0, 0);
   font-family: 'Inter';
 }
 
@@ -37,13 +37,60 @@ svg {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateX(50%);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
   }
 }
 
 canvas {
   opacity: 0;
   touch-action: none;
-  animation: fade-in 5s ease 1s forwards;
+  animation: fade-in 7s ease 5s forwards;
+}
+
+.title-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  z-index: 0;
+}
+
+.title {
+  margin-top: 30px;
+  font-size: 44px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  animation: slide-in 2s ease-out 0s forwards, fade-out 2s ease 5s forwards;
 }
